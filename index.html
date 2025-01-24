@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>OlegXio</title>
+    <style>
+      @font-face {
+        font-family: 'Doctor Glitch';
+        src: url('Doctor Glitch.otf') format('opentype');
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        color: #fff;
+        overflow: hidden;
+        background: linear-gradient(120deg, #ff0080, #ff8c00, #40e0d0, #00ff00, #0000ff, #8a2be2);
+        background-size: 600% 600%;
+        animation: gradientShift 60s infinite;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      h1 {
+        font-family: 'Doctor Glitch', Arial, sans-serif;
+        font-size: 6rem;
+        margin: 0;
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080;
+      }
+
+      p {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+      }
+
+      a {
+        color: #ffd700;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .follow-btn {
+        margin-top: 1.5rem;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #fff;
+        background-color: #ff4500;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px #ff4500;
+      }
+
+      .follow-btn:hover {
+        background-color: #ff6347;
+        box-shadow: 0 0 20px #ff4500;
+      }
+
+      footer {
+        margin-top: 2rem;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>OlegXio</h1>
+    <p>Добро пожаловать! Найди меня здесь:</p>
+
+    <div>
+      <a href="https://SIS_4DM1N.t.me" target="_blank">Telegram</a>
+      <a href="https://github.com/olegxio" target="_blank">GitHub</a>
+      <a href="mailto:olegxio@protonmail.com" target="_blank">e-mail</a>
+    </div>
+
+    <button class="follow-btn" onclick="followGithub()">Follow me</button>
+
+    <footer>
+      © 2025, Сделано с ❤️
+    </footer>
+
+    <script>
+      function followGithub() {
+        window.location.href = 'https://github.com/login?return_to=https://github.com/olegxio';
+      }
+    </script>
+  </body>
+</html>
