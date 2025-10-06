@@ -1,124 +1,169 @@
 <!doctype html>
 <html lang="ru">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>OlegXio</title>
     <style>
-      @font-face {
-        font-family: 'Doctor Glitch';
-        src: url('Doctor-Glitch.otf') format('opentype');
-      }
+        @font-face {
+            font-family: 'Doctor Glitch';
+            src: url('Doctor-Glitch.otf') format('opentype');
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+            
+            background: linear-gradient(120deg, #1c1c1c, #2a5298, #47106c, #8a2be2);
+            background-size: 400% 400%;
+            animation: gradientShift 60s infinite ease-in-out; 
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
 
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        color: #fff;
-        overflow: hidden;
-        background: linear-gradient(120deg, #ff0080, #ff8c00, #40e0d0, #00ff00, #0000ff, #8a2be2);
-        background-size: 600% 600%;
-        animation: gradientShift 60s infinite;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-      }
+        .content-container {
+            max-width: 90%;
+            width: 600px;
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.4); 
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+        }
 
-      @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-
-      h1 {
-        font-family: 'Doctor Glitch', Arial, sans-serif;
-        font-size: 10vw;
-        margin: 0;
-        text-shadow: 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080;
-      }
-
-      p {
-        font-size: 5vw;
-        margin: 1rem 0;
-      }
-
-      div a {
-        display: inline-block;
-        margin: 0.5rem;
-        padding: 0.5rem 1rem;
-        font-size: 4.5vw;
-        color: #ffd700;
-        text-decoration: none;
-        font-weight: bold;
-        border: 2px solid #ffd700;
-        border-radius: 8px;
-        transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-      }
-
-      div a:hover {
-        background: #ffd700;
-        color: #000;
-        box-shadow: 0 0 15px #ffd700, 0 0 30px #ff0080;
-      }
-
-      .follow-me {
-        margin-top: 2rem;
-        padding: 1rem 2rem;
-        font-size: 4.5vw;
-        font-weight: bold;
-        color: #fff;
-        border: 2px solid #fff;
-        border-radius: 10px;
-        background: transparent;
-        transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-        cursor: pointer;
-      }
-
-      .follow-me:hover {
-        background: #fff;
-        color: #000;
-        box-shadow: 0 0 15px #ffd700, 0 0 30px #ff0080;
-      }
-
-      footer {
-        margin-top: 2rem;
-        font-size: 3.5vw;
-      }
-
-      @media (min-width: 768px) {
         h1 {
-          font-size: 6rem;
+            font-family: 'Doctor Glitch', Arial, sans-serif;
+            font-size: 10vw;
+            margin: 0 0 1rem 0;
+            text-shadow: 0 0 5px #fff, 0 0 15px #f0f, 0 0 25px #f0f;
         }
+
         p {
-          font-size: 1.5rem;
+            font-size: 4vw; 
+            margin: 1rem 0 1.5rem 0; 
+            line-height: 1.5;
         }
-        div a {
-          font-size: 1.2rem;
-          padding: 0.5rem 1.5rem;
+        
+        .social-links {
+             margin-bottom: 2rem; 
         }
+        .social-links a {
+            display: inline-block;
+            margin: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 3.5vw;
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+        .social-links a:hover {
+            background: #ffd700;
+            color: #000;
+            box-shadow: 0 0 10px #ffd700;
+            transform: translateY(-2px);
+        }
+        
         .follow-me {
-          font-size: 1.2rem;
-          padding: 0.8rem 1.5rem;
+            margin: 0 0 2rem 0;
+            padding: 1rem 2rem;
+            font-size: 4.5vw;
+            font-weight: bold;
+            color: #fff;
+            background: #ff0080; 
+            border: none;
+            border-radius: 10px;
+            transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+            cursor: pointer;
+            text-decoration: none; 
         }
+        .follow-me:hover {
+            background: #ff40a0;
+            color: #fff;
+            box-shadow: 0 0 20px #ff0080;
+            transform: translateY(-2px);
+        }
+
         footer {
-          font-size: 1rem;
+            margin-top: 2rem;
+            font-size: 3.5vw;
         }
-      }
+
+        @media (max-width: 500px) {
+            p {
+                font-size: 4.5vw; 
+            }
+            
+            .social-links a {
+                display: block; 
+                width: 80%; 
+                margin: 0.75rem auto; 
+                font-size: 4.5vw; 
+                padding: 0.75rem 0;
+            }
+            
+
+            .follow-me {
+                display: block;
+                width: 80%;
+                margin: 2rem auto 2.5rem auto; 
+                font-size: 5.5vw;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 6rem;
+            }
+            p {
+                font-size: 1.2rem;
+            }
+            .social-links a {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+            .follow-me {
+                font-size: 1.5rem;
+                padding: 1rem 2rem;
+            }
+            footer {
+                font-size: 0.9rem;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <h1>OlegXio</h1>
-    <p>Добро пожаловать! Найди меня здесь:</p>
-    <div>
-      <a href="https://SIS_4DM1N.t.me" target="_blank">Telegram</a>
-      <a href="https://github.com/olegxio" target="_blank">GitHub</a>
-      <a href="mailto:olegxio@protonmail.com" target="_blank">e-mail</a>
+</head>
+<body>
+    <div class="content-container">
+        <h1>OlegXio</h1>
+        <p>Добро пожаловать! Найди меня здесь:</p>
+        
+        <div class="social-links">
+            <a href="https://SIS_4DM1N.t.me" target="_blank">Telegram</a>
+            <a href="https://github.com/olegxio" target="_blank">GitHub</a>
+            <a href="mailto:sudosudo@i2pmail.org" target="_blank">e-mail</a>
+        </div>
+        
+        <a href="https://github.com/login?return_to=https://github.com/olegxio" class="follow-me">Follow me</a>	
+        
+        <p>P. S. Я не фронтендер, поэтому сайт выглядит не великолепно, но здесь, возможно, скоро будет что-то интересное</p>
+        
+        <footer>© 2025, Сделано с ❤️</footer>
     </div>
-    <a href="https://github.com/login?return_to=https://github.com/olegxio" class="follow-me">Follow me</a>
-	<p>P. S. Я не фронтендер, поэтому сайт выглядит не великолепно, но здесь, возможно, скоро будет что-то интересное</p>
-    <footer>© 2025, Сделано с ❤️</footer>
-  </body>
+</body>
 </html>
