@@ -1,169 +1,244 @@
-<!doctype html>
-<html lang="ru">
+<!DOCTYPE html>
+<html lang="en" class="dark">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>OlegXio</title>
-    <style>
-        @font-face {
-            font-family: 'Doctor Glitch';
-            src: url('Doctor-Glitch.otf') format('opentype');
-        }
-        
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            color: #fff;
-            overflow: hidden;
-            
-            background: linear-gradient(120deg, #1c1c1c, #2a5298, #47106c, #8a2be2);
-            background-size: 400% 400%;
-            animation: gradientShift 60s infinite ease-in-out; 
-            
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-
-        .content-container {
-            max-width: 90%;
-            width: 600px;
-            padding: 30px 20px;
-            background: rgba(0, 0, 0, 0.4); 
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-        }
-
-        h1 {
-            font-family: 'Doctor Glitch', Arial, sans-serif;
-            font-size: 10vw;
-            margin: 0 0 1rem 0;
-            text-shadow: 0 0 5px #fff, 0 0 15px #f0f, 0 0 25px #f0f;
-        }
-
-        p {
-            font-size: 4vw; 
-            margin: 1rem 0 1.5rem 0; 
-            line-height: 1.5;
-        }
-        
-        .social-links {
-             margin-bottom: 2rem; 
-        }
-        .social-links a {
-            display: inline-block;
-            margin: 0.5rem;
-            padding: 0.5rem 1rem;
-            font-size: 3.5vw;
-            color: #ffd700;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            border: 2px solid #ffd700;
-            border-radius: 8px;
-            transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
-        }
-        .social-links a:hover {
-            background: #ffd700;
-            color: #000;
-            box-shadow: 0 0 10px #ffd700;
-            transform: translateY(-2px);
-        }
-        
-        .follow-me {
-            margin: 0 0 2rem 0;
-            padding: 1rem 2rem;
-            font-size: 4.5vw;
-            font-weight: bold;
-            color: #fff;
-            background: #ff0080; 
-            border: none;
-            border-radius: 10px;
-            transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
-            cursor: pointer;
-            text-decoration: none; 
-        }
-        .follow-me:hover {
-            background: #ff40a0;
-            color: #fff;
-            box-shadow: 0 0 20px #ff0080;
-            transform: translateY(-2px);
-        }
-
-        footer {
-            margin-top: 2rem;
-            font-size: 3.5vw;
-        }
-
-        @media (max-width: 500px) {
-            p {
-                font-size: 4.5vw; 
-            }
-            
-            .social-links a {
-                display: block; 
-                width: 80%; 
-                margin: 0.75rem auto; 
-                font-size: 4.5vw; 
-                padding: 0.75rem 0;
-            }
-            
-
-            .follow-me {
-                display: block;
-                width: 80%;
-                margin: 2rem auto 2.5rem auto; 
-                font-size: 5.5vw;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OlegXio | Python Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                        },
+                        dark: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    }
+                }
             }
         }
-        
-        @media (min-width: 768px) {
-            h1 {
-                font-size: 6rem;
-            }
-            p {
-                font-size: 1.2rem;
-            }
-            .social-links a {
-                font-size: 1rem;
-                padding: 0.8rem 1.5rem;
-            }
-            .follow-me {
-                font-size: 1.5rem;
-                padding: 1rem 2rem;
-            }
-            footer {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    </script>
 </head>
-<body>
-    <div class="content-container">
-        <h1>OlegXio</h1>
-        <p>Добро пожаловать! Найди меня здесь:</p>
+<body class="bg-gray-100 dark:bg-dark-900 min-h-screen flex flex-col">
+    <custom-navbar></custom-navbar>
+
+    <main class="flex-grow container mx-auto px-4 py-12">
+        <section id="hero" class="relative overflow-hidden rounded-xl mb-16">
+            <div class="absolute inset-0 z-0" id="vanta-bg"></div>
+            <div class="relative z-10 bg-gradient-to-r from-black/80 to-transparent p-8 md:p-12 lg:p-16 text-white">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">OlegXio</h1>
+                <h2 class="text-2xl md:text-3xl text-cyber-400 font-mono mb-6">Python Developer & Cybersecurity Specialist</h2>
+                <p class="text-lg max-w-2xl mb-8">
+                    Crafting secure digital solutions with 5+ years of Python experience and cybersecurity expertise.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#about" class="bg-cyber-600 hover:bg-cyber-500 text-white px-6 py-3 rounded-lg transition">About Me</a>
+                    <a href="#projects" class="bg-transparent border-2 border-white hover:bg-white/10 text-white px-6 py-3 rounded-lg transition">My Projects</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white flex items-center">
+                <i data-feather="user" class="mr-3"></i> About Me
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-dark-800 rounded-xl shadow-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800 dark:text-white flex items-center">
+                        <i data-feather="code" class="mr-2 text-cyber-500"></i> Python Experience
+                    </h3>
+                    <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <i data-feather="chevron-right" class="text-cyber-500 mr-2 mt-1 flex-shrink-0"></i>
+                            <span><strong>5+ years</strong> of professional Python development</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="chevron-right" class="text-cyber-500 mr-2 mt-1 flex-shrink-0"></i>
+                            <span><strong>Backend:</strong> FastAPI, SQLAlchemy (DB interaction)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="chevron-right" class="text-cyber-500 mr-2 mt-1 flex-shrink-0"></i>
+                            <span><strong>Development:</strong> Qt framework, Telegram bots (telebot/aiogram)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="chevron-right" class="text-cyber-500 mr-2 mt-1 flex-shrink-0"></i>
+                            <span><strong>Embedded:</strong> Raspberry Pi & Arduino platform development</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-dark-800 rounded-xl shadow-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800 dark:text-white flex items-center">
+                        <i data-feather="shield" class="mr-2 text-cyber-500"></i> Cybersecurity Skills
+                    </h3>
+                    <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <i data-feather="chevron-right" class="text-cyber-500 mr-2 mt-1 flex-shrink-0"></i>
+                            <span><strong>Cryptography:</strong> Various encryption methods for data protection</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="chevron-right" class="text-cyber-500 mr-2 mt-1 flex-shrink-0"></i>
+                            <span><strong>Anonymous networks:</strong> Tor & I2P expertise</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="chevron-right" class="text-cyber-500 mr-2 mt-1 flex-shrink-0"></i>
+                            <span><strong>System administration:</strong> Unix-like systems</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="chevron-right" class="text-cyber-500 mr-2 mt-1 flex-shrink-0"></i>
+                            <span><strong>Intelligence:</strong> OSINT & CSINT techniques</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="volunteer" class="mb-16">
+            <div class="bg-cyber-600 rounded-xl shadow-lg p-6 text-white">
+                <h3 class="text-2xl font-semibold mb-4 flex items-center">
+                    <i data-feather="heart" class="mr-2"></i> Volunteer Work
+                </h3>
+                <p class="mb-4">
+                    <strong>Telegram Support Force (TSF):</strong> Applying cybersecurity skills to help the community.
+                </p>
+                <a href="https://tsf.telegram.org" target="_blank" class="inline-flex items-center text-white hover:text-gray-200">
+                    <i data-feather="external-link" class="mr-2"></i> Visit tsf.telegram.org
+                </a>
+            </div>
+        </section>
+
+        <section id="projects" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white flex items-center">
+                <i data-feather="folder" class="mr-3"></i> Active Telegram Projects
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-dark-800 rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-cyber-500 p-4">
+                        <a class="text-xl font-semibold text-white" href="https://t.me/+FnFZd2OVsgMwZmEy" target="_blank">@XioSoft</a>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 dark:text-gray-300">Development of large-scale amateur software</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-dark-800 rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-cyber-500 p-4">
+                        <a class="text-xl font-semibold text-white" href="https://t.me/XioNotesBot" target="_blank">@XioNotesBot</a>
+						
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 dark:text-gray-300">TRULY anonymous notes/messages</p>
+                    </div>
+                </div>
+				
+                <div class="bg-white dark:bg-dark-800 rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-cyber-500 p-4">
+                        <a class="text-xl font-semibold text-white" href="https://t.me/useragentfinder_bot" target="_blank">@useragentfinder_bot</a>
+						
+						
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 dark:text-gray-300">Find information by Telegram ID</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-dark-800 rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-cyber-500 p-4">
+                        <a class="text-xl font-semibold text-white" href="https://t.me/s/this_undefined_shits" target="_blank">@this_undefined_shits</a>
+						
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 dark:text-gray-300">Shitpost channel with IT memes and life updates</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-dark-800 rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-cyber-500 p-4">
+                        <a class="text-xl font-semibold text-white" href="https://t.me/s/tsfreborn" target="_blank">@tsfreborn</a>
+						
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 dark:text-gray-300">TSF related content</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-dark-800 rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-cyber-500 p-4">
+                        <a class="text-xl font-semibold text-white" href="https://t.me/s/tg_news_insides" target="_blank">@tg_news_insides</a>
+						
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 dark:text-gray-300">Telegram update insides</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacts" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white flex items-center">
+                <i data-feather="mail" class="mr-3"></i> Contacts
+            </h2>
+            
+            <div class="bg-white dark:bg-dark-800 rounded-xl shadow-lg p-6">
+                <ul class="space-y-4">
+                    <li class="flex items-center">
+                        <i data-feather="mail" class="text-cyber-500 mr-4"></i>
+                        <div>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Email</p>
+                            <a href="mailto:sudosudo@i2pmail.org" class="text-gray-800 dark:text-white hover:text-cyber-500 transition">sudosudo@i2pmail.org</a>
+                        </div>
+                    </li>
+                    <li class="flex items-center">
+                        <i data-feather="send" class="text-cyber-500 mr-4"></i>
+                        <div>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Telegram</p>
+                            <a href="https://t.me/contact_to_sudo_bot" target="_blank" class="text-gray-800 dark:text-white hover:text-cyber-500 transition">@contact_to_sudo_bot</a>
+                        </div>
+                    </li>
+                    <li class="flex items-center">
+                        <i data-feather="github" class="text-cyber-500 mr-4"></i>
+                        <div>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">GitHub</p>
+                            <a href="https://github.com/olegxio" target="_blank" class="text-gray-800 dark:text-white hover:text-cyber-500 transition">github.com/olegxio</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
         
-        <div class="social-links">
-            <a href="https://SIS_4DM1N.t.me" target="_blank">Telegram</a>
-            <a href="https://github.com/olegxio" target="_blank">GitHub</a>
-            <a href="mailto:sudosudo@i2pmail.org" target="_blank">e-mail</a>
-        </div>
-        
-        <a href="https://github.com/login?return_to=https://github.com/olegxio" class="follow-me">Follow me</a>	
-        
-        <p>P. S. Я не фронтендер, поэтому сайт выглядит не великолепно, но здесь, возможно, скоро будет что-то интересное</p>
-        
-        <footer>© 2025, Сделано с ❤️</footer>
-    </div>
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3b82f6,
+            backgroundColor: 0x0
+        });
+    </script>
 </body>
 </html>
